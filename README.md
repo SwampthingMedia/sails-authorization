@@ -6,7 +6,7 @@ Node with [sails.js](http://sailsjs.org/#!) mvc framework, Using passport logins
 How it works
 ===================
 
-Sails is an mvc framework for organizing node applications using express. It provides structure to Models, controlers, polocies and adapters, and I use these in a way to authenticate users. Sails also builds an api available to the models we create and allows us to create our own routing system. For the purpose of this project, I will not be using the views system sails makes available and instead will use another node server to fake a mobile client. In the future, it would be good to use another framework system like [yeoman](http://yeoman.io/) to organize the client code. 
+Sails is an mvc framework for organizing node applications using express. It provides structure to Models, controllers, policies and adapters, and I use these in a way to authenticate users. Sails also builds an api available to the models we create and allows us to create our own routing system. For the purpose of this project, I will not be using the views system sails makes available and instead will use another node server to fake a mobile client. In the future, it would be good to use another framework system like [yeoman](http://yeoman.io/) to organize the client code. 
 
 ###Models
 
