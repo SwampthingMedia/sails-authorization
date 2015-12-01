@@ -21,7 +21,7 @@ var secret = 'ewfn09qu43f09qfj94qf*&H#(R';
 module.exports = {
     login: function(req, res) {
         passport.authenticate('local', function(err, user, info) {
-            if ((err) || (!user)) {
+            if ((err) || (!user) || !user.length) {
                 res.send({
                     success: false,
                     message: 'invalidPassword'
@@ -35,11 +35,11 @@ module.exports = {
                         error: err
                     });
                 } else {
-                    
-                    var token = jwt.sign(user, secret, { expiresInMinutes: 60*24 });
+
+                    var token = jwt.sign(user[0], secret, { expiresInMinutes: 60*24 });
                     res.send({
                         success: true,
-                        user: user,
+                        user: user[0],
                         token: token
                     });
                 }
