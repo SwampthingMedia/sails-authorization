@@ -16,7 +16,7 @@ We override the beforeCreate method of the model to salt and hash the incoming p
 
 ###Controllers
 
-We next add an AuthController into the api/controllers directory. This file will control authorization requests to the server. There are 2 authorization requests I have setup: login and logout. We use passport local authentication here to authenticate the user. We will get into the configuration of passport later on. If the user successfully logs in, we generate a token with [jwt (jsonwebtoken)](https://www.npmjs.org/package/jsonwebtoken) and attatch the oser object to it. This will allow us to determine who's token this is later on when they make a request. We must send this token back to the user to keep for themselves. 
+We next add an AuthController into the api/controllers directory. This file will control authorization requests to the server. There are 2 authorization requests I have setup: login and logout. We use passport local authentication here to authenticate the user. We will get into the configuration of passport later on. If the user successfully logs in, we generate a token with [jwt (jsonwebtoken)](https://www.npmjs.org/package/jsonwebtoken) and attatch the user object to it. This will allow us to determine who's token this is later on when they make a request. We must send this token back to the user to keep for themselves. 
 
 Logout is pretty straight forward. It's important to destroy the users token but currently I don't. 
 
@@ -36,7 +36,7 @@ Routes are how we define where sails sends our extra request. They are defined i
 
 ###Cors
 
-Sails allows us to set up how we handle cors requests. It is in config/cors. Since we are on a different server, we need to allow these requests. So, I set allRoutes to true, allowing all requests from other domains. Since we are also using and Authorization header in our requests, we need to add **authorization** to the **headers** object. This tells the server to allow the Authorization header on cors requests.
+Sails allows us to set up how we handle cors requests. It is in config/cors. Since we are on a different server, we need to allow these requests. So, I set allRoutes to true, allowing all requests from other domains. Since we are also using an Authorization header in our requests, we need to add **authorization** to the **headers** object. This tells the server to allow the Authorization header on cors requests.
 
 ###Adapters
 
@@ -45,7 +45,7 @@ Sails uses an dirty database to store objects by default. I'd rather use mongo t
 And Thats it
 =====================
 
-This token based authentication system will allow us to use the api that sails builds for us to it's full extent without having to let us rely on sessions to stay authenticated. We can now keep user's authenticated across multiple devices over a long period of time. 
+This token based authentication system will allow us to use the api that sails builds for us to it's full extent without having to rely on sessions to stay authenticated. We can now keep users authenticated across multiple devices over a long period of time. 
 
 
 
